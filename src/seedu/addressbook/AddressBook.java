@@ -784,6 +784,8 @@ public class AddressBook {
      */
     private static void addPersonToAddressBook(String[] person) {
         ALL_PERSONS.add(person);
+        Collections.sort(ALL_PERSONS, (String[] person1, String[] person2) ->
+                getNameFromPerson(person1).compareTo(getNameFromPerson(person2)));
         savePersonsToFile(getAllPersonsInAddressBook(), storageFilePath);
     }
 
